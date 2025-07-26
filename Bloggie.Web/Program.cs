@@ -15,6 +15,8 @@ builder.Services.AddDbContext<BloggieDbContext>
 
 // Register the TagRepository as a service
 builder.Services.AddScoped<ITagRepository, TagRepository>();
+// Register the BlogPostRepository as a service
+builder.Services.AddScoped<IBlogPostRepository, BlogPostRepository>();
 
 var app = builder.Build();
 

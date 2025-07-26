@@ -42,7 +42,7 @@ namespace Bloggie.Web.Controllers
         public async Task<IActionResult> List()
         {
             //use the DbContext to get all tags
-            List<Tag> tags = (await tr.GetAllAsync()).ToList();
+            var tags = await tr.GetAllAsync();
 
             return View(tags);
         }

@@ -227,3 +227,4 @@ D:\projects\Bloggie\Bloggie\Bloggie.Web\obj\Debug\net9.0\refint\Bloggie.Web.dll
 D:\projects\Bloggie\Bloggie\Bloggie.Web\obj\Debug\net9.0\Bloggie.Web.pdb
 D:\projects\Bloggie\Bloggie\Bloggie.Web\obj\Debug\net9.0\Bloggie.Web.genruntimeconfig.cache
 D:\projects\Bloggie\Bloggie\Bloggie.Web\obj\Debug\net9.0\ref\Bloggie.Web.dll
+D:\projects\Bloggie\Bloggie\Bloggie.Web\obj\Debug\net9.0\Bloggie.Web.sourcelink.json

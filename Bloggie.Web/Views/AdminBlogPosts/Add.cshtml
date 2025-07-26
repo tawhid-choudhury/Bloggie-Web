@@ -43,7 +43,7 @@
 			<input type="text" class="form-control" id="author" asp-for="Author" />
 		</div>
 		<div class="form-check mb-3">
-			<input class="form-check-input" type="checkbox" value="" id="visible" asp-for="Visible">
+			<input class="form-check-input" type="checkbox" id="visible" asp-for="Visible">
 			<label class="form-check-label">
 				Is visible?
 			</label>
@@ -52,7 +52,7 @@
 			<label class="form-label">Tags</label>
 			<select class="form-select"
 					asp-items="@Model.Tags"
-					asp-for="SelectedTag">
+					asp-for="SelectedTags">
 
 			</select>
 		</div>
