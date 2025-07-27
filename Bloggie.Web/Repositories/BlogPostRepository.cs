@@ -44,6 +44,13 @@ namespace Bloggie.Web.Repositories
                 .FirstOrDefaultAsync(x => x.Id == id);
         }
 
+        public Task<BlogPost?> GetByUrlHandleAsync(string urlHandle)
+        {
+            return bdbc.BlogPosts
+                .Include(x => x.Tags)
+                .FirstOrDefaultAsync(x => x.UrlHandle == urlHandle);
+        }
+
         public async Task<BlogPost?> UpdateAsync(BlogPost blogPost)
         {
             var blogpostExists = await bdbc.BlogPosts.Include(x => x.Tags).FirstOrDefaultAsync(x => x.Id == blogPost.Id);

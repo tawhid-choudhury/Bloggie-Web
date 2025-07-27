@@ -39,6 +39,24 @@
 				<input type="text" class="form-control" id="shortdescription" asp-for="ShortDescription" />
 			</div>
 			<div class="mb-3">
+				<label class="form-label"> Featured Image upload</label>
+				<input class="form-control" type="file" id="featuredImageUpload" />
+			</div>
+
+			<div>
+				@if (Model.FeaturedImageUrl != null && Model.FeaturedImageUrl != "")
+				{
+					<img class=" d-block img-thumbnail w-50 mb-3" src="@Model.FeaturedImageUrl" id="featuredImageDisplay" alt="Featured Image" />
+				}
+				else
+				{
+					<img class=" d-lg-none img-thumbnail w-50 mb-3" src="" id="featuredImageDisplay" alt="Alternate Text" />
+
+				}
+			</div>
+
+
+			<div class="mb-3">
 				<label class="form-label">Featured Image URL</label>
 				<input type="text" class="form-control" id="featuredImageUrl" asp-for="FeaturedImageUrl" />
 			</div>
@@ -70,11 +88,11 @@
 			</div>
 			<div class="mb-3">
 				<button type="submit" class="btn btn-primary"> Update </button>
-				<button type="submit" 
-					class="btn btn-danger"
-					asp-area=""
-					asp-controller="AdminBlogPosts"
-					asp-action="Delete">
+				<button type="submit"
+						class="btn btn-danger"
+						asp-area=""
+						asp-controller="AdminBlogPosts"
+						asp-action="Delete">
 					Delete
 				</button>
 
@@ -84,3 +102,41 @@
 	}
 </div>
 
+@section scripts {
+	<script>
+			var editor = new FroalaEditor('#content',{
+			imageUploadURL:"/api/images",
+		});
+
+		const featuredUploadElement = document.getElementById('featuredImageUpload');
+		const featuredImageUrlElement = document.getElementById('featuredImageUrl');
+		const featuredImageDisplayElement = document.getElementById('featuredImageDisplay');
+
+		async function uploadFeaturedImage(e)
+		{
+			console.log(e.target.files[0]);
+
+			data = new FormData();
+			data.append("file", e.target.files[0]);
+
+			await fetch('/api/images', {
+				method: 'POST',
+				headers: {
+					'Accept': '*/*'
+				},
+				body: data
+			}).then(response => response.json())
+			.then(result =>
+				{
+					featuredImageUrlElement.value = result.link
+					featuredImageDisplayElement.src = result.link;
+					featuredImageDisplayElement.classList.remove("d-lg-none");
+					featuredImageDisplayElement.classList.add("d-sm-block");
+				});
+
+		}
+
+		featuredUploadElement.addEventListener("change", uploadFeaturedImage);
+
+	</script>
+}

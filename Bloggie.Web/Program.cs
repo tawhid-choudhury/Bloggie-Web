@@ -2,21 +2,20 @@ using Bloggie.Web.Data;
 using Bloggie.Web.Repositories;
 using Microsoft.EntityFrameworkCore;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
 // Register the DbContext with dependency injection
-builder.Services.AddDbContext<BloggieDbContext>
-    (options => 
-    options.UseSqlServer(builder.Configuration.GetConnectionString(
-        "BloggieDbConnectionString")));
-
+builder.Services.AddDbContext<BloggieDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("BloggieDbConnectionString")));
 // Register the TagRepository as a service
 builder.Services.AddScoped<ITagRepository, TagRepository>();
 // Register the BlogPostRepository as a service
 builder.Services.AddScoped<IBlogPostRepository, BlogPostRepository>();
+// Register the ImageRepository as a service
+builder.Services.AddScoped<IImageRepository, CloudinaryImageRepository>();
 
 var app = builder.Build();
 
