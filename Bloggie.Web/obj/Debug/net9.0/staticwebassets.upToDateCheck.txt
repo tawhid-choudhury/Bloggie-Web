@@ -61,6 +61,7 @@ wwwroot\lib\jquery\dist\jquery.slim.js
 wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\lib\jquery\LICENSE.txt
+D:\projects\Bloggie\Bloggie\Bloggie.Web\wwwroot\css\site.css
 D:\projects\Bloggie\Bloggie\Bloggie.Web\wwwroot\favicon.ico
 D:\projects\Bloggie\Bloggie\Bloggie.Web\wwwroot\js\site.js
 D:\projects\Bloggie\Bloggie\Bloggie.Web\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
@@ -122,4 +123,3 @@ D:\projects\Bloggie\Bloggie\Bloggie.Web\wwwroot\lib\jquery\dist\jquery.slim.js
 D:\projects\Bloggie\Bloggie\Bloggie.Web\wwwroot\lib\jquery\dist\jquery.slim.min.js
 D:\projects\Bloggie\Bloggie\Bloggie.Web\wwwroot\lib\jquery\dist\jquery.slim.min.map
 D:\projects\Bloggie\Bloggie\Bloggie.Web\wwwroot\lib\jquery\LICENSE.txt
-D:\projects\Bloggie\Bloggie\Bloggie.Web\wwwroot\css\site.css
