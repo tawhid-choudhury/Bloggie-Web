@@ -1,5 +1,6 @@
 using Bloggie.Web.Data;
 using Bloggie.Web.Repositories;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -10,6 +11,12 @@ builder.Services.AddControllersWithViews();
 
 // Register the DbContext with dependency injection
 builder.Services.AddDbContext<BloggieDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("BloggieDbConnectionString")));
+// Register the AuthDbContext with dependency injection
+builder.Services.AddDbContext<AuthDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("BloggieAuthDbConnectionString")));
+
+
+// Configure Identity options
+builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AuthDbContext>();
 // Register the TagRepository as a service
 builder.Services.AddScoped<ITagRepository, TagRepository>();
 // Register the BlogPostRepository as a service
@@ -30,6 +37,7 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapStaticAssets();
@@ -41,3 +49,29 @@ app.MapControllerRoute(
 
 
 app.Run();
+
+//using Microsoft.AspNetCore.Identity;
+
+//namespace PasswordHashGenerator
+//{
+//    class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//            var user = new IdentityUser
+//            {
+//                UserName = "superadmin@bloggie.com",
+//                Email = "superadmin@bloggie.com"
+//            };
+
+//            var hasher = new PasswordHasher<IdentityUser>();
+//            var hashedPassword = hasher.HashPassword(user, "Superadmin@123");
+
+//            Console.WriteLine("Generated Password Hash:");
+//            Console.WriteLine(hashedPassword);
+
+//            Console.WriteLine("\nPress any key to exit...");
+//            Console.ReadKey(); // Waits for a key press before closing
+//        }
+//    }
+//}
