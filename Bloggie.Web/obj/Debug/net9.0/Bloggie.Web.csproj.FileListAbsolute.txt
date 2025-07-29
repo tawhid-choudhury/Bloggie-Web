@@ -230,9 +230,10 @@ D:\projects\Bloggie\Bloggie\Bloggie.Web\obj\Debug\net9.0\Bloggie.Web.sourcelink.
 D:\projects\Bloggie\Bloggie\Bloggie.Web\bin\Debug\net9.0\CloudinaryDotNet.dll
 D:\projects\Bloggie\Bloggie\Bloggie.Web\bin\Debug\net9.0\dotenv.net.dll
 D:\projects\Bloggie\Bloggie\Bloggie.Web\bin\Debug\net9.0\Newtonsoft.Json.dll
-D:\projects\Bloggie\Bloggie\Bloggie.Web\obj\Debug\net9.0\compressed\rwmhx51ef5-ck1fnh7yj6.gz
 D:\projects\Bloggie\Bloggie\Bloggie.Web\bin\Debug\net9.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 D:\projects\Bloggie\Bloggie\Bloggie.Web\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 D:\projects\Bloggie\Bloggie\Bloggie.Web\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 D:\projects\Bloggie\Bloggie\Bloggie.Web\bin\Debug\net9.0\Microsoft.Extensions.Identity.Core.dll
 D:\projects\Bloggie\Bloggie\Bloggie.Web\bin\Debug\net9.0\Microsoft.Extensions.Identity.Stores.dll
+D:\projects\Bloggie\Bloggie\Bloggie.Web\obj\Debug\net9.0\compressed\rwmhx51ef5-4n6ah05o8b.gz
+D:\projects\Bloggie\Bloggie\Bloggie.Web\obj\Debug\net9.0\compressed\49x6xy2id6-zrvpq5s7nb.gz

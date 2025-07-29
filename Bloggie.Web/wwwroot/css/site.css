@@ -35,3 +35,11 @@ body {
     height: auto;
     border-radius: 10px;
 }
+
+.min-vh-75 {
+    min-height: 75vh;
+}
+
+.min-vh-50 {
+    min-height: 75vh;
+}

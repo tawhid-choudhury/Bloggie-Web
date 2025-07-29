@@ -14,6 +14,17 @@ builder.Services.AddDbContext<BloggieDbContext>(options => options.UseSqlServer(
 // Register the AuthDbContext with dependency injection
 builder.Services.AddDbContext<AuthDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("BloggieAuthDbConnectionString")));
 
+// identity options
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    // Password settings
+    options.Password.RequireDigit = true;
+    options.Password.RequireLowercase = true;
+    options.Password.RequireNonAlphanumeric = true;
+    options.Password.RequireUppercase = true;
+    options.Password.RequiredLength = 6;
+    options.Password.RequiredUniqueChars = 1;
+});
 
 // Configure Identity options
 builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AuthDbContext>();
@@ -49,29 +60,3 @@ app.MapControllerRoute(
 
 
 app.Run();
-
-//using Microsoft.AspNetCore.Identity;
-
-//namespace PasswordHashGenerator
-//{
-//    class Program
-//    {
-//        static void Main(string[] args)
-//        {
-//            var user = new IdentityUser
-//            {
-//                UserName = "superadmin@bloggie.com",
-//                Email = "superadmin@bloggie.com"
-//            };
-
-//            var hasher = new PasswordHasher<IdentityUser>();
-//            var hashedPassword = hasher.HashPassword(user, "Superadmin@123");
-
-//            Console.WriteLine("Generated Password Hash:");
-//            Console.WriteLine(hashedPassword);
-
-//            Console.WriteLine("\nPress any key to exit...");
-//            Console.ReadKey(); // Waits for a key press before closing
-//        }
-//    }
-//}
