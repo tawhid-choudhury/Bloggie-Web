@@ -28,12 +28,13 @@ builder.Services.Configure<IdentityOptions>(options =>
 
 // Configure Identity options
 builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AuthDbContext>();
-// Register the TagRepository as a service
+
+
+// Register the Repositories as scoped services
 builder.Services.AddScoped<ITagRepository, TagRepository>();
-// Register the BlogPostRepository as a service
 builder.Services.AddScoped<IBlogPostRepository, BlogPostRepository>();
-// Register the ImageRepository as a service
 builder.Services.AddScoped<IImageRepository, CloudinaryImageRepository>();
+builder.Services.AddScoped<IBlogPostLikeRepository,BlogPostLikeRepository>();
 
 var app = builder.Build();
 

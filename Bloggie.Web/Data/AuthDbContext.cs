@@ -10,11 +10,15 @@ namespace Bloggie.Web.Data
         {
         }
 
+
+        //this method suppresses the EF Core warning about pending model changes that suggest a migration might be needed.
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.ConfigureWarnings(warnings =>
                 warnings.Ignore(Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId.PendingModelChangesWarning));
         }
+
+        // This method is used to configure the model and seed data.
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
