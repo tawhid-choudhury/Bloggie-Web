@@ -58,6 +58,45 @@
 					@Html.Raw(Model.Content)
 				</div>
 
+				<div class="card">
+					<div class="card-header">
+						<h5>Comments</h5>
+
+						@if (signInManager.IsSignedIn(User))
+						{
+							<form method="post">
+								<div class="mb-3">
+									<label class="form-label">Comment Description</label>
+									<textarea type="text" class="form-control" rows="3" asp-for="CommentDescription"></textarea>
+								</div>
+								<div class="mb-3">
+									<button type="submit" class="btn btn-dark">Submit</button>
+									<input type="hidden" asp-for="Id" />
+									<input type="hidden" asp-for="UrlHandle" />
+								</div>
+							</form>
+						}
+						<div class="card-body">
+							@if (Model.BlogPostComments != null && Model.BlogPostComments.Any())
+							{
+								<div class="list-group">
+									@foreach (var comment in Model.BlogPostComments)
+									{
+										<div class="list-group-item">
+											<div class="d-flex justify-content-between">
+												@* get username *@
+													<span class="fw-bold">@comment.Username</span>
+												<span class="text-secondary">@comment.DateAdded.ToString("f")</span>
+											</div>
+											<p>@comment.Description</p>
+										</div>
+									}
+								</div>
+							}
+						</div>
+					</div>
+				</div>
+
 			}
 			else
 			{
