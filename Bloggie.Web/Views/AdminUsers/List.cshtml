@@ -1,0 +1,35 @@
+﻿@model Bloggie.Web.Models.ViewModels.AdminUsersViewModel
+@{
+}
+
+@{
+	ViewData["Title"] = "Edit Users Admin page";
+}
+
+<div class="bg-secondary bg-opacity-10 py-2 mb-3">
+	<div class="container">
+		<h1 class="">Add New Blogpost - Admin Functionality</h1>
+	</div>
+</div>
+
+<div class="container">
+<table class="table">
+	<tr>
+		<th>UserId</th>
+		<th>Username</th>
+		<th>Email</th>
+	</tr>
+	@foreach (var user in Model.Users)
+	{
+		<tr>
+			<td>@user.UserID</td>
+			<td>@user.UserName</td>
+			<td>@user.Email</td>
+			@* <td>
+				<a class="btn btn-primary" asp-action="Edit" asp-route-id="@user.Id">Edit</a>
+				<a class="btn btn-danger" asp-action="Delete" asp-route-id="@user.Id">Delete</a>
+			</td> *@
+		</tr>
+	}
+</table>
+</div>
