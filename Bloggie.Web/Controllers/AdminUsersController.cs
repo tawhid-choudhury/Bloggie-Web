@@ -13,6 +13,8 @@ namespace Bloggie.Web.Controllers
         {
             this.adminUsersRepository = adminUsersRepository;
         }
+
+        [HttpGet]
         public async Task<IActionResult> List()
         {
             var users = await adminUsersRepository.GetAllUsers();
@@ -34,5 +36,12 @@ namespace Bloggie.Web.Controllers
 
             return View(adminUsersViewModel);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Add(AdminUsersViewModel request) 
+        {
+            return null;
+        }
+
     }
 }
