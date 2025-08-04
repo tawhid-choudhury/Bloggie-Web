@@ -3,36 +3,28 @@
   "WorkspaceRootPath": "D:\\projects\\Bloggie\\Bloggie\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C6A5FD3C-E8F9-4539-89A4-B12812697BD1}|Bloggie.Web\\Bloggie.Web.csproj|d:\\projects\\bloggie\\bloggie\\bloggie.web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C6A5FD3C-E8F9-4539-89A4-B12812697BD1}|Bloggie.Web\\Bloggie.Web.csproj|solutionrelative:bloggie.web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{C6A5FD3C-E8F9-4539-89A4-B12812697BD1}|Bloggie.Web\\Bloggie.Web.csproj|d:\\projects\\bloggie\\bloggie\\bloggie.web\\controllers\\adminuserscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6A5FD3C-E8F9-4539-89A4-B12812697BD1}|Bloggie.Web\\Bloggie.Web.csproj|solutionrelative:bloggie.web\\controllers\\adminuserscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C6A5FD3C-E8F9-4539-89A4-B12812697BD1}|Bloggie.Web\\Bloggie.Web.csproj|d:\\projects\\bloggie\\bloggie\\bloggie.web\\views\\adminusers\\list.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C6A5FD3C-E8F9-4539-89A4-B12812697BD1}|Bloggie.Web\\Bloggie.Web.csproj|solutionrelative:bloggie.web\\views\\adminusers\\list.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C6A5FD3C-E8F9-4539-89A4-B12812697BD1}|Bloggie.Web\\Bloggie.Web.csproj|d:\\projects\\bloggie\\bloggie\\bloggie.web\\controllers\\adminuserscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6A5FD3C-E8F9-4539-89A4-B12812697BD1}|Bloggie.Web\\Bloggie.Web.csproj|solutionrelative:bloggie.web\\controllers\\adminuserscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6A5FD3C-E8F9-4539-89A4-B12812697BD1}|Bloggie.Web\\Bloggie.Web.csproj|d:\\projects\\bloggie\\bloggie\\bloggie.web\\repositories\\adminusersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6A5FD3C-E8F9-4539-89A4-B12812697BD1}|Bloggie.Web\\Bloggie.Web.csproj|solutionrelative:bloggie.web\\repositories\\adminusersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C6A5FD3C-E8F9-4539-89A4-B12812697BD1}|Bloggie.Web\\Bloggie.Web.csproj|d:\\projects\\bloggie\\bloggie\\bloggie.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C6A5FD3C-E8F9-4539-89A4-B12812697BD1}|Bloggie.Web\\Bloggie.Web.csproj|solutionrelative:bloggie.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C6A5FD3C-E8F9-4539-89A4-B12812697BD1}|Bloggie.Web\\Bloggie.Web.csproj|d:\\projects\\bloggie\\bloggie\\bloggie.web\\models\\viewmodels\\adminusersviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6A5FD3C-E8F9-4539-89A4-B12812697BD1}|Bloggie.Web\\Bloggie.Web.csproj|solutionrelative:bloggie.web\\models\\viewmodels\\adminusersviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C6A5FD3C-E8F9-4539-89A4-B12812697BD1}|Bloggie.Web\\Bloggie.Web.csproj|d:\\projects\\bloggie\\bloggie\\bloggie.web\\models\\domain\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6A5FD3C-E8F9-4539-89A4-B12812697BD1}|Bloggie.Web\\Bloggie.Web.csproj|solutionrelative:bloggie.web\\models\\domain\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C6A5FD3C-E8F9-4539-89A4-B12812697BD1}|Bloggie.Web\\Bloggie.Web.csproj|d:\\projects\\bloggie\\bloggie\\bloggie.web\\repositories\\iadminusersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C6A5FD3C-E8F9-4539-89A4-B12812697BD1}|Bloggie.Web\\Bloggie.Web.csproj|solutionrelative:bloggie.web\\repositories\\iadminusersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C6A5FD3C-E8F9-4539-89A4-B12812697BD1}|Bloggie.Web\\Bloggie.Web.csproj|d:\\projects\\bloggie\\bloggie\\bloggie.web\\models\\domain\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6A5FD3C-E8F9-4539-89A4-B12812697BD1}|Bloggie.Web\\Bloggie.Web.csproj|solutionrelative:bloggie.web\\models\\domain\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C6A5FD3C-E8F9-4539-89A4-B12812697BD1}|Bloggie.Web\\Bloggie.Web.csproj|d:\\projects\\bloggie\\bloggie\\bloggie.web\\repositories\\adminusersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6A5FD3C-E8F9-4539-89A4-B12812697BD1}|Bloggie.Web\\Bloggie.Web.csproj|solutionrelative:bloggie.web\\repositories\\adminusersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,21 +34,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "D:\\projects\\Bloggie\\Bloggie\\Bloggie.Web\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "Bloggie.Web\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "D:\\projects\\Bloggie\\Bloggie\\Bloggie.Web\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "Bloggie.Web\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAAAE0AAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-03T15:30:15.409Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -65,38 +44,27 @@
               "RelativeDocumentMoniker": "Bloggie.Web\\Views\\AdminUsers\\List.cshtml",
               "ToolTip": "D:\\projects\\Bloggie\\Bloggie\\Bloggie.Web\\Views\\AdminUsers\\List.cshtml",
               "RelativeToolTip": "Bloggie.Web\\Views\\AdminUsers\\List.cshtml",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAABcAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAABYAAAAAAAAAAAAMwCYAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-08-02T15:58:48.862Z",
+              "WhenOpened": "2025-08-03T18:04:32.43Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "AdminUsersViewModel.cs",
-              "DocumentMoniker": "D:\\projects\\Bloggie\\Bloggie\\Bloggie.Web\\Models\\ViewModels\\AdminUsersViewModel.cs",
-              "RelativeDocumentMoniker": "Bloggie.Web\\Models\\ViewModels\\AdminUsersViewModel.cs",
-              "ToolTip": "D:\\projects\\Bloggie\\Bloggie\\Bloggie.Web\\Models\\ViewModels\\AdminUsersViewModel.cs",
-              "RelativeToolTip": "Bloggie.Web\\Models\\ViewModels\\AdminUsersViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-02T16:12:18.647Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\projects\\Bloggie\\Bloggie\\Bloggie.Web\\Program.cs",
               "RelativeDocumentMoniker": "Bloggie.Web\\Program.cs",
               "ToolTip": "D:\\projects\\Bloggie\\Bloggie\\Bloggie.Web\\Program.cs",
               "RelativeToolTip": "Bloggie.Web\\Program.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAYwEEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-02T15:32:28.141Z"
+              "WhenOpened": "2025-08-02T15:32:28.141Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "AdminUsersRepository.cs",
               "DocumentMoniker": "D:\\projects\\Bloggie\\Bloggie\\Bloggie.Web\\Repositories\\AdminUsersRepository.cs",
               "RelativeDocumentMoniker": "Bloggie.Web\\Repositories\\AdminUsersRepository.cs",
@@ -108,31 +76,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "AdminUsersController.cs",
               "DocumentMoniker": "D:\\projects\\Bloggie\\Bloggie\\Bloggie.Web\\Controllers\\AdminUsersController.cs",
               "RelativeDocumentMoniker": "Bloggie.Web\\Controllers\\AdminUsersController.cs",
               "ToolTip": "D:\\projects\\Bloggie\\Bloggie\\Bloggie.Web\\Controllers\\AdminUsersController.cs",
               "RelativeToolTip": "Bloggie.Web\\Controllers\\AdminUsersController.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAQwBcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACEAAAAAAAAAAAAgwFYAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-02T14:27:04.667Z"
+              "WhenOpened": "2025-08-02T14:27:04.667Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 3,
               "Title": "User.cs",
               "DocumentMoniker": "D:\\projects\\Bloggie\\Bloggie\\Bloggie.Web\\Models\\Domain\\User.cs",
               "RelativeDocumentMoniker": "Bloggie.Web\\Models\\Domain\\User.cs",
               "ToolTip": "D:\\projects\\Bloggie\\Bloggie\\Bloggie.Web\\Models\\Domain\\User.cs",
               "RelativeToolTip": "Bloggie.Web\\Models\\Domain\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAIAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-02T16:20:40.977Z"
+              "WhenOpened": "2025-08-02T16:20:40.977Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
               "Title": "IAdminUsersRepository.cs",
               "DocumentMoniker": "D:\\projects\\Bloggie\\Bloggie\\Bloggie.Web\\Repositories\\IAdminUsersRepository.cs",
               "RelativeDocumentMoniker": "Bloggie.Web\\Repositories\\IAdminUsersRepository.cs",

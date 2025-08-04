@@ -1,17 +1,22 @@
 ﻿using Bloggie.Web.Models.Domain;
 using Bloggie.Web.Models.ViewModels;
 using Bloggie.Web.Repositories;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Bloggie.Web.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminUsersController : Controller
     {
         private readonly IAdminUsersRepository adminUsersRepository;
+        private readonly UserManager<IdentityUser> userManager;
 
-        public AdminUsersController(IAdminUsersRepository adminUsersRepository)
+        public AdminUsersController(IAdminUsersRepository adminUsersRepository, UserManager<IdentityUser> userManager)
         {
             this.adminUsersRepository = adminUsersRepository;
+            this.userManager = userManager;
         }
 
         [HttpGet]
@@ -38,10 +43,51 @@ namespace Bloggie.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add(AdminUsersViewModel request) 
+        public async Task<IActionResult> List(AdminUsersViewModel request)
         {
-            return null;
+            var identityUser = new IdentityUser
+            {
+                UserName = request.Username,
+                Email = request.Email
+            };
+            var identityResult = await userManager.CreateAsync(identityUser, request.Password);
+            if (identityResult != null)
+            {
+                if (identityResult.Succeeded)
+                {
+                    var roles = new List<string>{"User"};
+                    if (request.AdminRoleCheckbox)
+                    {
+                        roles.Add("Admin");
+                    }
+                    identityResult = await userManager.AddToRolesAsync(identityUser, roles);
+
+                    if (identityResult != null && identityResult.Succeeded)
+                    {
+                        return RedirectToAction("List");
+                    }
+
+
+                }
+
+            }
+            return View();
         }
 
+        [HttpPost]
+        public async Task<ActionResult> Delete(Guid id) 
+        {
+            var user = await userManager.FindByIdAsync(id.ToString());
+            if (user is not null) 
+            {
+                var identityResult = await userManager.DeleteAsync(user);
+
+                if (identityResult is not null && identityResult.Succeeded)
+                {
+                    return RedirectToAction("List");
+                }
+            }
+            return View();
+        }
     }
 }

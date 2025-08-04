@@ -15,7 +15,7 @@
 
 @* modal *@
 <div class="mb-3 container d-flex justify-content-center ">
-	<button type="button" class="btn btn-secondary w-100" data-bs-toggle="modal" data-bs-target="#modalCreateUser">
+	<button type="button" class="btn btn-warning w-100" data-bs-toggle="modal" data-bs-target="#modalCreateUser">
 		Create User
 	</button>
 </div>
@@ -25,6 +25,7 @@
 			<th>UserId</th>
 			<th>Username</th>
 			<th>Email</th>
+			<th>Action</th>
 		</tr>
 		@foreach (var user in Model.Users)
 		{
@@ -32,10 +33,17 @@
 				<td>@user.UserID</td>
 				<td>@user.UserName</td>
 				<td>@user.Email</td>
-				@* <td>
-				<a class="btn btn-primary" asp-action="Edit" asp-route-id="@user.Id">Edit</a>
-				<a class="btn btn-danger" asp-action="Delete" asp-route-id="@user.Id">Delete</a>
-			</td> *@
+				<td>
+					<form method="post"
+						asp-controller="AdminUsers"
+						asp-action="Delete"
+						asp-route-id="@user.UserID"
+					>
+						<button type="submit" class="btn btn-danger">
+							Delete
+						</button>
+					</form>
+				</td>
 			</tr>
 		}
 	</table>
@@ -50,43 +58,44 @@
 				<h1 class="modal-title fs-5" id="exampleModalLabel">Create New Us</h1>
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
-			<div class="modal-body">
-				<form method="post">
+			<form method="post">
+				<div class="modal-body">
 
 					<div class="mb-3">
 						<label class="form-label">Username</label>
-						<input type="text" class="form-control" name="username" id="username" asp-for="Username" required />
+						<input type="text" class="form-control" asp-for="Username" required />
 					</div>
 
 					<div class="mb-3">
 						<label class="form-label">Email</label>
-						<input type="email" class="form-control" name="email" id="email" asp-for="Email" required />
+						<input type="email" class="form-control" asp-for="Email" required />
 					</div>
 
 					<div class="mb-3">
 						<label class="form-label">Password</label>
-						<input type="password" class="form-control" name="password" id="password" asp-for="Password" required />
+						<input type="password" class="form-control" asp-for="Password" required />
 					</div>
 
 					<div class="mb-3 d-flex align-items-center">
-						<input type="checkbox" class="form-check m-2" name="userRole" id="userRole" value="User" checked disabled />
+						<input type="checkbox" class="form-check m-2" checked disabled />
 						<label class="form-check-label">User Role</label>
 					</div>
 
-					<div class="mb-3 d-flex align-items-center">
-						<input type="checkbox" class="form-check m-2"
-							   name="adminRole" id="adminRole"
-							   asp-for="AdminRoleCheckbox"
-							   value="Admin"/>
-						<label class="form-check-label">Admin Role</label>
-					</div>
+					@if (User.IsInRole("SuperAdmin"))
+					{
+						<div class="mb-3 d-flex align-items-center">
+							<input type="checkbox" class="form-check m-2"
+								   asp-for="AdminRoleCheckbox" />
+							<label class="form-check-label" for="adminRole">Admin Role</label>
+						</div>
+					}
 
-				</form>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary">Add New User</button>
-			</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-primary">Add New User</button>
+				</div>
+			</form>
 		</div>
 	</div>
 </div>
