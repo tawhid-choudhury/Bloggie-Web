@@ -4,20 +4,33 @@ using Bloggie.Web.Models.ViewModels;
 using Bloggie.Web.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 
 namespace Bloggie.Web.Controllers
 {
 
-    [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
     public class AdminTagsController : Controller
     {
         private readonly ITagRepository tr;
-
         public AdminTagsController(ITagRepository tr)
         {
             this.tr = tr;
         }
+
+        private void ValidateAddTagRequest(AddTagRequest atr)
+        {
+            if (atr.Name != null && atr.DisplayName != null)
+            {
+                if (atr.Name == atr.DisplayName)
+                {
+                    ModelState.AddModelError("DisplayName", "Name and DisplayName can not be same");
+                }
+            }
+
+        }
+
 
         
         [HttpGet]
@@ -30,6 +43,13 @@ namespace Bloggie.Web.Controllers
         [ActionName("Add")]
         public async Task<IActionResult> Add(AddTagRequest atr)
         {
+            ValidateAddTagRequest(atr);
+
+            if (!ModelState.IsValid)
+            {
+                return View(atr);
+            }
+
             Tag t = new Tag
             {
                 Name = atr.Name,
@@ -43,10 +63,10 @@ namespace Bloggie.Web.Controllers
 
         [HttpGet]
         [ActionName("List")]
-        public async Task<IActionResult> List()
+        public async Task<IActionResult> List(string? searchQuery)
         {
             //use the DbContext to get all tags
-            var tags = await tr.GetAllAsync();
+            var tags = await tr.GetAllAsync(searchQuery);
 
             return View(tags);
         }

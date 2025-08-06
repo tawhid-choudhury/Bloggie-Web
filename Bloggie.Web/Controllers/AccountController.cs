@@ -1,6 +1,7 @@
 ﻿using Bloggie.Web.Models.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace Bloggie.Web.Controllers
 {
@@ -16,6 +17,33 @@ namespace Bloggie.Web.Controllers
             this.signInManager = signInManager;
         }
 
+        private void ValidatePassword(string password)
+        {
+            if (string.IsNullOrWhiteSpace(password))
+            {
+                ModelState.AddModelError("Password", "Password is required.");
+                return;
+            }
+
+            if (password.Length < 6)
+                ModelState.AddModelError("Password", "Password must be at least 6 characters long.");
+
+            if (!password.Any(char.IsUpper))
+                ModelState.AddModelError("Password", "Password must contain at least one uppercase letter.");
+
+            if (!password.Any(char.IsLower))
+                ModelState.AddModelError("Password", "Password must contain at least one lowercase letter.");
+
+            if (!password.Any(char.IsDigit))
+                ModelState.AddModelError("Password", "Password must contain at least one digit.");
+
+            if (!password.Any(ch => !char.IsLetterOrDigit(ch)))
+                ModelState.AddModelError("Password", "Password must contain at least one special character.");
+
+            if (password.Distinct().Count() < 1)
+                ModelState.AddModelError("Password", "Password must contain at least one unique character.");
+        }
+
 
         [HttpGet]
         public IActionResult Register()
@@ -23,32 +51,40 @@ namespace Bloggie.Web.Controllers
             return View();
         }
 
+
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
         {
-            var identityUser = new IdentityUser
-            {
-                UserName = registerViewModel.UserName,
-                Email = registerViewModel.Email
-            };
+            ValidatePassword(registerViewModel.Password);
 
-            var identityResult = await userManager.CreateAsync(identityUser, registerViewModel.Password);
-
-            if (identityResult.Succeeded)
-            {
-                //assign the user to a role
-                var roleIdentityResult = await userManager.AddToRoleAsync(identityUser, "User");
-                if (roleIdentityResult.Succeeded)
+            if (ModelState.IsValid) {
+                var identityUser = new IdentityUser
                 {
-                    //show success message
-                    return RedirectToAction("Register");
+                    UserName = registerViewModel.UserName,
+                    Email = registerViewModel.Email
+                };
+
+                var identityResult = await userManager.CreateAsync(identityUser, registerViewModel.Password);
+
+                if (identityResult.Succeeded)
+                {
+                    //assign the user to a role
+                    var roleIdentityResult = await userManager.AddToRoleAsync(identityUser, "User");
+                    if (roleIdentityResult.Succeeded)
+                    {
+                        //show success message
+                        return RedirectToAction("Register");
+                    }
                 }
+
             }
+               
             // If we reach here, something went wrong
             //show error messages
             return View();
 
         }
+
 
         [HttpGet]
         public IActionResult Login(string ReturnUrl)
@@ -60,24 +96,32 @@ namespace Bloggie.Web.Controllers
             return View(model);
         }
 
+
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel loginViewModel)
         {
-            var signInResult = await signInManager.PasswordSignInAsync(loginViewModel.Username, loginViewModel.Password, false, false);
 
-            if (signInResult != null && signInResult.Succeeded)
+            if (ModelState.IsValid)
             {
-                if (loginViewModel.ReturnUrl != null) 
+                var signInResult = await signInManager.PasswordSignInAsync(loginViewModel.Username, loginViewModel.Password, false, false);
+
+                if (signInResult != null && signInResult.Succeeded)
                 {
-                    return Redirect(loginViewModel.ReturnUrl);
+                    if (loginViewModel.ReturnUrl != null)
+                    {
+                        return Redirect(loginViewModel.ReturnUrl);
+                    }
+                    //show success message
+                    return RedirectToAction("Index", "Home");
                 }
-                //show success message
-                return RedirectToAction("Index", "Home");
+
             }
+
 
             //show error messages
             return View();
         }
+
 
         [HttpGet]
         public async Task<IActionResult> Logout()
@@ -87,11 +131,13 @@ namespace Bloggie.Web.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+
         [HttpGet]
         public IActionResult AccessDenied()
         {
             // This action can be used to show an access denied page
             return View();
         }
+         
     }
 }
