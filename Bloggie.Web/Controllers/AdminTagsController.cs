@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Bloggie.Web.Controllers
 {
 
-        [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     public class AdminTagsController : Controller
     {
         private readonly ITagRepository tr;
@@ -32,7 +32,7 @@ namespace Bloggie.Web.Controllers
         }
 
 
-        
+
         [HttpGet]
         public IActionResult Add()
         {
@@ -63,10 +63,31 @@ namespace Bloggie.Web.Controllers
 
         [HttpGet]
         [ActionName("List")]
-        public async Task<IActionResult> List(string? searchQuery)
+        public async Task<IActionResult> List
+            (
+            string? searchQuery,
+            int pageSize = 3,
+            int pageNumber = 1
+            )
         {
+            var totalRecords = await tr.CountAsync();
+            var totalPages = Math.Ceiling((double)totalRecords / pageSize);
+
+            if (totalPages < pageNumber) 
+            {
+                pageNumber--;
+            }
+            if (totalPages > pageNumber)
+            {
+                pageNumber++;
+            }
+            ViewBag.SearchQuery = searchQuery;
+            ViewBag.TotalPages = totalPages;
+            ViewBag.PageSize = pageSize;
+            ViewBag.PageNumber = pageNumber;
+
             //use the DbContext to get all tags
-            var tags = await tr.GetAllAsync(searchQuery);
+            var tags = await tr.GetAllAsync(searchQuery, pageSize, pageNumber);
 
             return View(tags);
         }
@@ -126,7 +147,7 @@ namespace Bloggie.Web.Controllers
 
             }
             // TODO - Show Failure notification
-            return RedirectToAction("Edit", new { id=etr.Id });
+            return RedirectToAction("Edit", new { id = etr.Id });
         }
     }
 }

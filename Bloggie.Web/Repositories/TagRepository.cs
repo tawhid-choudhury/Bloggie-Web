@@ -23,6 +23,11 @@ namespace Bloggie.Web.Repositories
             return t;
         }
 
+        public async Task<int> CountAsync()
+        {
+            return await bdbc.Tags.CountAsync();
+        }
+
         // This method deletes a tag from the database by its ID
         public async Task<Tag?> DeleteAsync(Guid id)
         {
@@ -38,7 +43,12 @@ namespace Bloggie.Web.Repositories
         }
 
         // This method retrieves all tags from the database
-        public async Task<IEnumerable<Tag>> GetAllAsync(string? searchQuery)
+        public async Task<IEnumerable<Tag>> GetAllAsync
+            (
+            string? searchQuery,
+            int pageSize=100,
+            int pageNumber = 1
+            )
         {
             var query = bdbc.Tags.AsQueryable();
 
@@ -50,6 +60,9 @@ namespace Bloggie.Web.Repositories
             //sort
 
             //pagination
+            query = query
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize);
 
             return await query.ToListAsync();
             // return await bdbc.Tags.ToListAsync();
