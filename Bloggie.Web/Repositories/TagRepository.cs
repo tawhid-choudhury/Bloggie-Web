@@ -1,6 +1,8 @@
 ﻿using Bloggie.Web.Data;
 using Bloggie.Web.Models.Domain;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel;
+using System.Globalization;
 
 namespace Bloggie.Web.Repositories
 {
@@ -46,7 +48,9 @@ namespace Bloggie.Web.Repositories
         public async Task<IEnumerable<Tag>> GetAllAsync
             (
             string? searchQuery,
-            int pageSize=100,
+            string? sortBy,
+            string? sortDirection,
+            int pageSize = 100,
             int pageNumber = 1
             )
         {
@@ -58,6 +62,19 @@ namespace Bloggie.Web.Repositories
                 query = query.Where(x => x.Name.Contains(searchQuery) || x.DisplayName.Contains(searchQuery));
             }
             //sort
+            if (string.IsNullOrWhiteSpace(sortBy) == false)
+            {
+                var isDesc = string.Equals(sortDirection, "Desc", StringComparison.OrdinalIgnoreCase) ? true : false;
+
+                if (String.Equals(sortBy, "Name", StringComparison.OrdinalIgnoreCase))
+                {
+                    query = isDesc ? query.OrderByDescending(x => x.Name): query.OrderBy(x => x.Name); 
+                }
+                if (String.Equals(sortBy, "DisplayName", StringComparison.OrdinalIgnoreCase))
+                {
+                    query = isDesc ? query.OrderByDescending(x => x.DisplayName) : query.OrderBy(x => x.DisplayName);
+                }
+            }
 
             //pagination
             query = query
@@ -72,7 +89,7 @@ namespace Bloggie.Web.Repositories
         // This method retrieves a tag by its ID from the database
         public async Task<Tag?> GetAsync(Guid id)
         {
-           return await bdbc.Tags.FirstOrDefaultAsync(x => x.Id == id);
+            return await bdbc.Tags.FirstOrDefaultAsync(x => x.Id == id);
         }
 
         // This method updates an existing tag in the database

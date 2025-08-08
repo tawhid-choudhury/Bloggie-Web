@@ -7,6 +7,8 @@ namespace Bloggie.Web.Repositories
         Task<IEnumerable<Tag>> GetAllAsync
             ( 
             string? searchQueary = null,
+            string? sortBy = null,
+            string? sortDirection = null,
             int pageSize = 100,
             int pageNumber = 1
             );

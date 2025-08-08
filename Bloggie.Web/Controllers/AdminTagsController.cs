@@ -66,28 +66,34 @@ namespace Bloggie.Web.Controllers
         public async Task<IActionResult> List
             (
             string? searchQuery,
-            int pageSize = 3,
+            string? sortBy,
+            string? sortDirection,
+            int pageSize = 5,
             int pageNumber = 1
             )
         {
             var totalRecords = await tr.CountAsync();
             var totalPages = Math.Ceiling((double)totalRecords / pageSize);
 
-            if (totalPages < pageNumber) 
+            if (pageNumber > totalPages)
             {
                 pageNumber--;
             }
-            if (totalPages > pageNumber)
+
+            if (pageNumber < 1)
             {
                 pageNumber++;
             }
+
+            ViewBag.SortBy = sortBy;
+            ViewBag.SortDirection = sortDirection;
             ViewBag.SearchQuery = searchQuery;
             ViewBag.TotalPages = totalPages;
             ViewBag.PageSize = pageSize;
             ViewBag.PageNumber = pageNumber;
 
             //use the DbContext to get all tags
-            var tags = await tr.GetAllAsync(searchQuery, pageSize, pageNumber);
+            var tags = await tr.GetAllAsync(searchQuery,sortBy,sortDirection, pageSize, pageNumber);
 
             return View(tags);
         }
