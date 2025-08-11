@@ -33,6 +33,7 @@ wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css
 wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css.map
 wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css
 wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrapTheme.min.css
 wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js
 wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map
 wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js
@@ -61,7 +62,6 @@ wwwroot\lib\jquery\dist\jquery.slim.js
 wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\lib\jquery\LICENSE.txt
-wwwroot\lib\bootstrap\dist\css\bootstrapTheme.min.css
 D:\projects\Bloggie\Bloggie\Bloggie.Web\wwwroot\css\site.css
 D:\projects\Bloggie\Bloggie\Bloggie.Web\wwwroot\favicon.ico
 D:\projects\Bloggie\Bloggie\Bloggie.Web\wwwroot\js\site.js
