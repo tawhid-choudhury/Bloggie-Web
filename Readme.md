@@ -25,7 +25,9 @@ Bloggie is a modern blogging platform built with ASP.NET Core Razor Pages (.NET 
 
 ### 1. Clone the Repository
 
+```
 git clone https://github.com/yourusername/bloggie.git cd bloggie
+```
 
 ### 2. Configure User Secrets
 
