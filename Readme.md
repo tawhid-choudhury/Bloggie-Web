@@ -76,8 +76,17 @@ dotnet run
 
 ## Usage
 
-- Register a new user account.
-- Log in to access blog features.
+#### As a Super Admin
+
+- Log in as superadmin to access blog features, update, add and delete blogs users tags.
+
+**Super Admin Credentials**
+
+```
+Username (Email): superadmin@bloggie.com
+Password: Superadmin@123
+```
+
 - Create, edit, and delete blog posts (admin features may require role assignment).
 - Upload images to Cloudinary.
 - Like and comment on posts.
